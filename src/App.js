@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
-import SearchBox from './components/SearchBox';
+import SearchForm from './components/SearchForm';
 import AddTaskButton from './components/AddTaskButton';
 
 let todolistDB;
@@ -74,6 +74,8 @@ function App() {
 	};
 	const toggleAddForm = () => {
 		setShowAddForm(!showAddForm);
+		// CLEAR SEARCH
+		setTodoList(todolistDB);
 	};
 
 	return (
@@ -83,7 +85,7 @@ function App() {
 				{showAddForm ? (
 					<AddTask addNewTask={addNewTask} />
 				) : (
-					<SearchBox searchTodo={searchTodo} />
+					<SearchForm searchTodo={searchTodo} />
 				)}
 			</header>
 

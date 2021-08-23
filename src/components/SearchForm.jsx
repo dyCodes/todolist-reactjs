@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 
-function SearchBox({ searchTodo }) {
+function SearchForm({ searchTodo }) {
 	const [typing, setTyping] = useState();
 	const [input, setInput] = useState('');
-	
+
+	const clearForm = () => {
+		setInput('');
+		searchTodo('');
+		setTyping(false);
+	};
+
 	const onChange = e => {
 		setInput(e.target.value);
 		searchTodo(e.target.value);
 		e.target.value.length > 0 ? setTyping(true) : setTyping(false);
 	};
-
 	let class_name = typing ? 'fa fa-times' : 'fa fa-search';
 
 	return (
@@ -20,16 +25,9 @@ function SearchBox({ searchTodo }) {
 				value={input}
 				onChange={onChange}
 			/>
-			<i
-				className={class_name}
-				onClick={() => {
-					setInput('');
-					searchTodo('');
-					setTyping(false);
-				}}
-			></i>
+			<i className={class_name} onClick={clearForm}></i>
 		</form>
 	);
 }
 
-export default SearchBox;
+export default SearchForm;
