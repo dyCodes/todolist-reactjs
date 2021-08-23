@@ -6,11 +6,7 @@
 	box-sizing: border-box;
 	outline: none !important;
 }
-.flex {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
+
 body {
 	--textColorH: #fff;
 	--mainColor: #111;
@@ -41,9 +37,29 @@ body[data-theme='dark'] {
 			}
 		}
 	}
-	form input[type='date']::-webkit-calendar-picker-indicator {
-		filter: invert(0);
+	form {
+		input::placeholder,
+		input[type='date']::-webkit-datetime-edit {
+			color: #888;
+		}
+		input[type='date']::-webkit-calendar-picker-indicator {
+			filter: invert(0.56);
+		}
 	}
+}
+
+h1,
+h2,
+h3 {
+	font-family: Oxygen, sans-serif;
+}
+.flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+button {
+	cursor: pointer;
 }
 
 header {
@@ -148,10 +164,10 @@ header {
 
 	input::placeholder,
 	input[type='date']::-webkit-datetime-edit {
-		color: var(--primaryColor);
+		color: #bbb;
 	}
 	input[type='date']::-webkit-calendar-picker-indicator {
-		filter: invert(1);
+		filter: invert(0.7);
 	}
 }
 
@@ -172,19 +188,19 @@ main {
 		text-transform: uppercase;
 		letter-spacing: 0.6px;
 
-		// &:after {
-		// 	content: '';
-		// 	position: absolute;
-		// 	bottom: -9px;
-		// 	height: 2px;
-		// 	width: 100%;
-		// 	left: 0;
-		// 	background: #3c0183;
-		// }
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: -6px;
+			height: 2px;
+			width: 40px;
+			left: 0;
+			background: #3c0183;
+		}
 	}
 }
 .tasks {
-	margin-top: 20px;
+	margin-top: 26px;
 
 	.task {
 		display: flex;
@@ -288,9 +304,9 @@ main {
 
 	span {
 		font-size: 40px;
-		margin-top: -2px;
+		margin-top: -1px;
 		transition: 0.4s;
-		margin-right: -2px;
+		margin-right: -1px;
 	}
 }
 
@@ -301,9 +317,19 @@ main {
 	.App {
 		position: relative;
 		margin: auto;
-		max-width: 520px;
+		max-width: 460px;
 		background: #1d1c1f40;
 		border-radius: 35px;
 		overflow: hidden;
+		.App .addTaskButton {
+			right: 22%;
+			bottom: 12%;
+		}
+	}
+}
+@media (min-width: 996px) {
+	.addTaskButton {
+		right: 35%;
+		bottom: 6%;
 	}
 }
