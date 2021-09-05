@@ -1,15 +1,11 @@
 import React from 'react';
 
 function Header() {
-	// const [style, setStyle] = useState();
-
 	const onClick = () => {
-		if (document.body.dataset.theme === 'light') {
-			document.body.dataset.theme = 'dark';
-		} else {
-			document.body.dataset.theme = 'light';
-		}
-		// setStyle({ transform: ' rotate(0)' });
+		// TOGGLE LIGHT/DARK MODE
+		let userMode = document.body.parentElement.dataset.theme;
+		document.body.parentElement.dataset.theme =
+			userMode === 'light' ? 'dark' : 'light';
 	};
 
 	return (

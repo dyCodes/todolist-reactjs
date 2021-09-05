@@ -4,33 +4,9 @@ import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 import SearchForm from './components/SearchForm';
 import AddTaskButton from './components/AddTaskButton';
+import todolistApi from './components/todolistApi';
 
-let todolistDB;
-// UPDATE DB FUNCTION
-const updateDB = todoList => {
-	localStorage.setItem('todoList', JSON.stringify(todoList));
-	return JSON.parse(localStorage.getItem('todoList'));
-};
-
-// GET TODOLIST FROM DB
-(function() {
-	todolistDB = localStorage.getItem('todoList');
-
-	if (todolistDB) {
-		todolistDB = JSON.parse(todolistDB);
-	} else {
-		let today = new Date();
-		let newTodo = [
-			{
-				id: 0,
-				name: 'Add a new task',
-				date: today.toDateString(),
-				completed: false
-			}
-		];
-		todolistDB = updateDB(newTodo);
-	}
-})();
+let todolistDB = todolistApi.fetch();
 
 // APP
 function App() {
@@ -41,14 +17,18 @@ function App() {
 		todolistDB = todoList.map(todo => {
 			return todo.id === id ? { ...todo, completed: !todo.completed } : todo;
 		});
-		updateDB(todolistDB);
+
+		todolistApi.update(todolistDB);
 		setTodoList(todolistDB);
 	};
+
 	const onDelete = id => {
 		todolistDB = todoList.filter(todo => todo.id !== id);
-		updateDB(todolistDB);
+
+		todolistApi.update(todolistDB);
 		setTodoList(todolistDB);
 	};
+
 	const searchTodo = e => {
 		setTodoList(
 			todolistDB.filter(todo =>
@@ -56,9 +36,9 @@ function App() {
 			)
 		);
 	};
+
 	const addNewTask = (todo, date) => {
 		date = new Date(date);
-		console.log(todo, date);
 		todolistDB = [
 			...todolistDB,
 			{
@@ -69,9 +49,10 @@ function App() {
 				completed: false
 			}
 		];
-		updateDB(todolistDB);
+		todolistApi.update(todolistDB);
 		setTodoList(todolistDB);
 	};
+
 	const toggleAddForm = () => {
 		setShowAddForm(!showAddForm);
 		// CLEAR SEARCH
@@ -90,6 +71,7 @@ function App() {
 			</header>
 
 			<main>
+				{todoList.length > 0 && <h3 className="heading">Tasks</h3>}
 				<Tasks data={todoList} onCheck={onCheck} onDelete={onDelete} />
 				<AddTaskButton onAdd={toggleAddForm} showAddForm={showAddForm} />
 			</main>

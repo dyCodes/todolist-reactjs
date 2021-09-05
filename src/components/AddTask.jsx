@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 let today = new Date();
+// CHANGE DATE TO ISOString FORMAT
 today = today.toISOString().substr(0, 10);
 
 function AddTask({ addNewTask }) {
