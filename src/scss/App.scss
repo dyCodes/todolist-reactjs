@@ -1,70 +1,16 @@
-* {
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
-	text-decoration: none;
-	box-sizing: border-box;
-	outline: none !important;
-}
+@import 'config';
 
-body {
-	--textColorH: #fff;
-	--mainColor: #111;
-	--primaryColor: #eee;
-	// BODY STYLE
-	color: #222;
-	min-height: 100vh;
-	font-family: Roboto, Oxygen, sans-serif;
-	-webkit-tap-highlight-color: transparent;
-	transition: 0.4s linear;
-	background: linear-gradient(45deg, #0003a3, #5b0072);
+// APP
+.App {
+	max-width: 460px;
+	margin: auto;
+	backdrop-filter: saturate(1.1);
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.12);
 }
-body[data-theme='dark'] {
-	--textColorH: #fff;
-	--mainColor: #fff;
-	--primaryColor: #05050d;
-
-	main .tasks {
-		.task {
-			label::before {
-				border: 1px solid #05050d !important;
-			}
-			label::after {
-				background: #05050d !important;
-			}
-			.date {
-				color: #bbb;
-			}
-		}
-	}
-	form {
-		input::placeholder,
-		input[type='date']::-webkit-datetime-edit {
-			color: #888;
-		}
-		input[type='date']::-webkit-calendar-picker-indicator {
-			filter: invert(0.56);
-		}
-	}
-}
-
-h1,
-h2,
-h3 {
-	font-family: Oxygen, sans-serif;
-}
-.flex {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-button {
-	cursor: pointer;
-}
-
+// HEADER
 header {
 	color: var(--textColorH);
-	padding: 20px 30px;
+	padding: 20px;
 	margin-bottom: 50px;
 
 	nav {
@@ -170,13 +116,11 @@ header {
 		filter: invert(0.7);
 	}
 }
-
+// MAIN
 main {
 	color: var(--mainColor);
 	width: 100%;
 	min-height: 70vh;
-	// position: absolute;
-	// height: 40vh;
 	bottom: 0;
 	border-radius: 45px 0 0;
 	padding: 30px;
@@ -198,7 +142,31 @@ main {
 			background: #3c0183;
 		}
 	}
+	.addTaskButton {
+		position: fixed;
+		display: grid;
+		place-content: center;
+		right: 35px;
+		bottom: 50px;
+		width: 50px;
+		height: 50px;
+		color: #eee;
+		font-size: 44px;
+		border-radius: 50%;
+		z-index: 5;
+		cursor: pointer;
+		background: #3c0183;
+		box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.25);
+
+		span {
+			font-size: 40px;
+			margin-top: -1px;
+			transition: 0.4s;
+			margin-right: -1px;
+		}
+	}
 }
+// TASKS
 .tasks {
 	margin-top: 26px;
 
@@ -283,53 +251,5 @@ main {
 			left: 0;
 			right: 0;
 		}
-	}
-}
-
-.addTaskButton {
-	position: fixed;
-	display: grid;
-	place-content: center;
-	right: 30px;
-	bottom: 35px;
-	width: 50px;
-	height: 50px;
-	color: #eee;
-	font-size: 44px;
-	border-radius: 50%;
-	z-index: 5;
-	cursor: pointer;
-	background: #3c0183;
-	box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.25);
-
-	span {
-		font-size: 40px;
-		margin-top: -1px;
-		transition: 0.4s;
-		margin-right: -1px;
-	}
-}
-
-@media (min-width: 760px) {
-	body {
-		padding: 30px;
-	}
-	.App {
-		position: relative;
-		margin: auto;
-		max-width: 460px;
-		background: #1d1c1f40;
-		border-radius: 35px;
-		overflow: hidden;
-		.App .addTaskButton {
-			right: 22%;
-			bottom: 12%;
-		}
-	}
-}
-@media (min-width: 996px) {
-	.addTaskButton {
-		right: 35%;
-		bottom: 6%;
 	}
 }
