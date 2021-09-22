@@ -73,8 +73,8 @@ function App() {
 			<main>
 				{todoList.length > 0 && <h3 className="heading">Tasks</h3>}
 				<Tasks data={todoList} onCheck={onCheck} onDelete={onDelete} />
-				<AddTaskButton onAdd={toggleAddForm} showAddForm={showAddForm} />
 			</main>
+				<AddTaskButton onAdd={toggleAddForm} showAddForm={showAddForm} />
 		</div>
 	);
 }

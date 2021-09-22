@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React from 'react';
 
 const AddTaskButton = ({ onAdd, showAddForm }) => {
 	let btnCss = showAddForm
@@ -6,7 +6,9 @@ const AddTaskButton = ({ onAdd, showAddForm }) => {
 		: { transform: 'rotate(225deg)' };
 	return (
 		<div className="addTaskButton" onClick={onAdd}>
-			<span style={btnCss}>&times;</span>
+			<div className="btn">
+				<span style={btnCss}>&times;</span>
+			</div>
 		</div>
 	);
 };
