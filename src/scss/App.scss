@@ -147,6 +147,29 @@ main {
 			background: #3c0183;
 		}
 	}
+	.addTaskButton {
+		position: fixed;
+		display: grid;
+		place-content: center;
+		right: 35px;
+		bottom: 50px;
+		width: 50px;
+		height: 50px;
+		color: #eee;
+		font-size: 44px;
+		border-radius: 50%;
+		z-index: 5;
+		cursor: pointer;
+		background: #3c0183;
+		box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.25);
+
+		span {
+			font-size: 40px;
+			margin-top: -1px;
+			transition: 0.4s;
+			margin-right: -1px;
+		}
+	}
 }
 // TASKS
 .tasks {
