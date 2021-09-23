@@ -8,7 +8,7 @@ https://dycodes.github.io/todolist-reactjs/
 
 ## Screenshot
 
-<img src="screenshot.jpg" alt="screenshot" width="380"/>
+<img src="https://dycodes.github.io/todolist-reactjs/screenshot.jpg" alt="screenshot" width="380"/>
 
 ## Available Scripts
 
