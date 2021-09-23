@@ -1,6 +1,6 @@
 {
 	"name": "todolist-app",
-	"version": "1.0",
+	"version": "0.1.0",
 	"homepage": "https://dycodes.github.io/todolist-reactjs/",
 	"private": true,
 	"dependencies": {
