@@ -1,6 +1,6 @@
 ## About
 
-Todo List app created with ReactJs and SCSS.
+Todo List app built with ReactJs, SCSS and Local storage for persisting data.
 
 ## Live Demo
 
